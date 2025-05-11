@@ -10,7 +10,7 @@ DATA_FILE = 'mydata.yml'
 IMG_SIZE = 416
 BATCH_SIZE = 32
 EPOCHS = 30
-WEIGHTS_DIR = './epoch_weights'
+WEIGHTS_DIR = 'epoch_weights'
 METRICS_FILE = 'train_metrics.csv'
 
 records = []
@@ -25,6 +25,7 @@ def train():
 
     def on_epoch_end(trainer):
         epoch = int(trainer.epoch) + 1
+        os.makedirs(WEIGHTS_DIR, exist_ok=True)
         weight_path = os.path.join(WEIGHTS_DIR, f'epoch_{epoch}.pt')
         model.save(weight_path)
     

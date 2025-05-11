@@ -1,6 +1,7 @@
-path: ../../data/split1
+path: /content/dataset/split2
 train: train
 val: val
+test: test
 
 nc: 5
 names: ['Plastic', 'Paper', 'Metal', 'Glass', 'Other'] 
