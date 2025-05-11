@@ -8,7 +8,7 @@ import os
 
 DATA_FILE = 'mydata.yml'
 IMG_SIZE = 416
-BATCH_SIZE = 32
+BATCH_SIZE = 64
 EPOCHS = 30
 WEIGHTS_DIR = 'epoch_weights'
 METRICS_FILE = 'train_metrics.csv'
