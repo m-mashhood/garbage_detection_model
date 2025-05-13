@@ -13,7 +13,6 @@ EPOCHS = 100
 WEIGHTS_DIR = 'epoch_weights'
 METRICS_FILE = 'train_metrics.csv'
 
-records = []
 
 def train():
     print(torch.cuda.is_available())
@@ -39,9 +38,11 @@ def train():
         name='my_yolov8_model'
     )
 
-    evaluate_on_train(device)
 
-def evaluate_on_train(device):
+def evaluate_on_train():
+    device = torch.device("cuda:0")
+    records = []
+
     for fname in sorted(os.listdir(WEIGHTS_DIR)):
         if fname.endswith('.pt'):
             epoch = int(fname.split('_')[1].split('.')[0])
