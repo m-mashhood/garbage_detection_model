@@ -47,6 +47,10 @@ def evaluate_on_train():
         if fname.endswith('.pt'):
             epoch = int(fname.split('_')[1].split('.')[0])
 
+            # Skip odd-numbered epochs
+            if epoch % 2 != 0:
+                continue
+
             ckpt_path = os.path.join(WEIGHTS_DIR, fname)
             print(f"Evaluating epoch {epoch} with checkpoint {ckpt_path}")
             model_ckpt = YOLO(ckpt_path)
